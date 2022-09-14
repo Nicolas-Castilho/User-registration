@@ -1,0 +1,84 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Cadastro de usuário</title>
+    <script language="javascript">
+        function valida_dados (nomeform)
+        {      
+            if (nomeform.usuario.value=="")
+            {
+                alert ("Por favor digite o nome do usuário.");
+                return false;
+            }
+            if (nomeform.email.value=="" || nomeform.email.value.indexOf('@', 0) == -1 || nomeform.email.value.indexOf('.', 0) == -1)
+            {
+                alert ("E-mail inválido.");
+                return false;
+            }
+            if (nomeform.pin.value.length<5 || nomeform.pin.value.length>15)
+            {   
+                alert ("O pin deve conter entre 5 e 15 caracteres.");
+                return false;
+            }
+            if (nomeform.pin.value.indexOf(' ', 0) != -1)
+            {
+                alert ("O pin não pode conter espaços em branco.");
+                return false;
+            }
+            if (nomeform.senha.value.length<5 || nomeform.senha.value.length>15)
+            {
+                alert ("A senha deve conter entre 5 e 15 caracteres.");
+                return false;
+            }
+            if (nomeform.senha.value.indexOf(' ', 0) != -1)
+            {
+                alert ("A senha não pode conter espaços em branco.");
+                return false;
+            }
+            if (nomeform.senha.value != nomeform.confirmacao.value)
+            {
+                alert ("As senhas digitadas não são iguais, tente novamente.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    </head>
+    <body>
+        <div id="container">
+            <h2 class="title">Preencha o formulário para se cadastrar no site</h2>
+            <form method="POST" action="Obrigado.html" onSubmit="return valida_dados(this)" class="cadForm">
+            <div id="fieldset">    
+                <label for="usuario">
+                    <p>
+                        Usuário: <input type="text" name="usuario" size="20"class="formInput">
+                    </p>
+                </label>
+                <label for="email">
+                    <p>
+                        E-mail: <input type="text" name="email" size="20"class="formInput">
+                    </p>
+                </label>
+                <label for="pin">                                  
+                    <p>
+                        Pin: <input type="text" name="pin" size="20"class="formInput">
+                    </p>
+                </label>    
+                <label for="senha">
+                    <p>
+                        Senha: <input type="password" name="senha" size="20"class="formInput">
+                    </p>
+                </label>                    
+                <label for="confirmacao">
+                    <p>
+                    Confirme sua senha: <input type="password" name="confirmacao" size="20"class="formInput">
+                    </p>
+                </label>
+                    <p>
+                    <input type="submit" value="Enviar" name="enviar"class="formSubmit">
+                    </p>
+            </div>
+            </form>
+        </div>
+    </body>
+</html>
